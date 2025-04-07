@@ -14,7 +14,7 @@ public class DBConn {
         Connection conn = null;
 
         final String driver = "org.mariadb.jdbc.Driver";
-        final String DB_IP = "localhost";
+        final String DB_IP = "3.34.178.61:3306";
         final String DB_PORT = "3306";
         final String DB_NAME = "yygang_demo_db4";
         final String DB_URL =
@@ -24,7 +24,7 @@ public class DBConn {
             Class.forName(driver);
 
             // DB 연결
-            conn = DriverManager.getConnection(DB_URL, "beyondT3", "0000");
+            conn = DriverManager.getConnection(DB_URL, "root", "0000");
             System.out.println("Database connected successfully!");
 
             // 데이터베이스 메타데이터 얻기
