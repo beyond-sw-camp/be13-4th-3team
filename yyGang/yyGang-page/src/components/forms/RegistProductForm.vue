@@ -53,15 +53,16 @@
       </div>
 
       <!-- 상품 이미지 등록 -->
-      <div class="mb-3">
+
+      <!-- <div class="mb-3">
         <label for="productImage" class="form-label">상품 이미지</label>
-        <input type="file" class="form-control" id="productImage" @change="handleImageUpload" accept="image/*" ref="fileInput">
+        <input type="file" class="form-control" id="productImage" @change="handleImageUpload" accept="image/*" ref="fileInput"> -->
         <!-- 선택된 이미지 미리보기 -->
-        <div v-if="formData.productImage" class="mt-2">
+        <!-- <div v-if="formData.productImage" class="mt-2">
           <img :src="formData.productImage" alt="상품 이미지 미리보기" class="img-thumbnail" style="max-width: 200px;">
           <button type="button" class="btn btn-danger mt-2" @click="deleteImage">이미지 삭제</button>
         </div>
-      </div>
+      </div>  -->
 
       <button type="submit" class="btn btn-primary" v-text="submitButtonText"></button>
     </div>
