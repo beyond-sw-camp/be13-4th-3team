@@ -23,6 +23,7 @@
   </tr>
 </table>
 
+<br>
 
 ## 기술 스택
 ### 🌐 Backend
@@ -45,6 +46,7 @@
 ### 💬 Communication
 <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=white"> <img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=Discord&logoColor=white"> <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
 
+<br>
 
 ## 📌 목차
 
@@ -55,6 +57,8 @@
 5. [ERD 설계](#-erd-설계)
 6. [CI/CD 파이프라인](#️-cicd-파이프라인)
 7. [CI/CD 테스트 결과](#-cicd-테스트-결과)
+
+<br><br>
 
 ## 🌟 프로젝트 소개
 
@@ -134,7 +138,7 @@
 - 사용자 피드백 및 건강 데이터를 바탕으로  
   **지속적인 알고리즘 개선 및 서비스 정밀화**
 
-<br>
+<br><br>
 
 ## 📚 WBS
 
@@ -146,7 +150,7 @@
 
 ![WBS 이미지](https://github.com/user-attachments/assets/404be2bf-9a79-4989-ae36-80f1d01a2186)
 
-<br>
+<br><br>
 
 ## 📝 요구사항 명세서
 
@@ -158,7 +162,7 @@
 
 <img src="https://github.com/user-attachments/assets/31b2672e-1fe1-4dda-acce-aa0aa280dab2" width="70%">
 
-<br>
+<br><br>
 
 ## 🗂️ ERD 설계
 
@@ -170,7 +174,7 @@
 
 ![ERD 이미지](https://github.com/user-attachments/assets/cef667aa-ef02-4ba9-82b4-76dd227a586e)
 
-<br>
+<br><br>
 
 ## 🧱 시스템 아키텍처
 
@@ -181,7 +185,7 @@
 
 
 
-<br>
+<br><br>
 
 ## 🛠️ CI/CD 파이프라인
 
@@ -203,7 +207,8 @@
 2. 소스코드 **빌드 및 테스트 자동 수행**  
 3. **Docker 이미지 생성 및 레지스트리 등록**  
 4. CapRover를 통해 **자동 배포 트리거**
-<br>
+
+<br><br>
 
 ## 🧪 CI/CD 테스트 결과
 
