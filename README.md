@@ -189,7 +189,6 @@
 
 ## 🛠️ CI/CD 파이프라인
 
-
 <details><summary>backend pipeline
 
 </summary>
@@ -202,22 +201,44 @@ jenkins파일
 > **개발부터 배포까지**, 자동화된 파이프라인을 통해  
 > **일관된 품질과 빠른 배포**를 실현했습니다.
 
-> 아래는 **CI/CD 구성 예시**입니다.
 
-### ✔️ 도구 구성 *(예시)*
+### ✔️ 도구 구성 
 
-- **GitHub Actions**를 사용한 자동화된 CI/CD
+- **Jenkins, ArgoCD**를 사용한 자동화된 CI/CD
 - **Docker** 기반 컨테이너 이미지 빌드
 - **Nginx + Spring Boot**를 통한 웹 서버 구성
-- **CapRover**로 손쉬운 배포 및 롤백 관리
 
-### ✔️ 흐름 설명 *(예시)*
 
-1. **Push 또는 PR 발생 시** GitHub Actions 작동  
-2. 소스코드 **빌드 및 테스트 자동 수행**  
-3. **Docker 이미지 생성 및 레지스트리 등록**  
-4. CapRover를 통해 **자동 배포 트리거**
+### ✔️ 흐름 설명
 
+<details><summary>CI/CD 흐름 설명
+
+</summary>
+
+1. Application 변경 사항(프로젝트 코드) Github에 코드 push
+
+      - Vue.js(프론트엔드), Spring Boot(백엔드) 프로젝트에서 수정된 소스 코드를 GitHub의 메인 저장소로 푸시
+<br><br>
+2. Jenkins가 Webhook을 통해 이벤트를 감지
+
+      - [Backend] : Backend pileline이 동작하게 되고, Gradle 빌드하여 jar파일 생성 :
+ 
+   - [Frontend] : Frondend pipeline이 동작하게 되고, npm 빌드하여 dist폴더 생성
+<br><br>
+3. 빌드된 결과물은 Dockerfile을 사용하여 Docker image로 생성
+<br><br>
+4. Docker image 생성 후 외부 저장소(Docker Hub)로 push하여 저장
+<br><br>
+5. Jenkins가 별도의 Git 저장소에 배포용 YAML 파일 업데이트(ex.deployment.yaml, service.yaml…) & 이미지를 최신으로 업데이트
+<br><br>
+6. ArgoCd는 Git 저장소의 변경을 감지 및 자동 동기화
+    
+    - 지정된 Git 저장소의 변경을 감지하면 자동으로 Kubernetes 클러스터에 해당 리소스를 동기화 
+<br><br>
+7. Kubernetes 클러스터에 최신 컨테이너 자동 배포
+    - ArgoCD는 최신 이미지를 사용하여 새로운 Pod를 생성하고, 이전 Pod를 점진적으로 종료하는 롤링 업데이트 방식으로 무중단 배포를 수행
+
+</details>
 <br><br>
 
 ## 🧪 CI/CD 테스트 결과
