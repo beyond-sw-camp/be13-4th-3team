@@ -93,7 +93,7 @@ pipeline {
         //             sh 'java -jar build/libs/yyGang-0.0.1-SNAPSHOT.jar > app.log 2>&1 &'
         //         }
         //     }
-        // }ㅇㅇ
+        // }
         // manifest 실행 스테이지
         stage('Trigger yygang-manifest'){
             steps{
