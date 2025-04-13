@@ -1,0 +1,194 @@
+GET http://0.0.0.0:8000/actuator/health
+Accept: application/vnd.spring-boot.actuator.v3+json
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+
+<> 2025-04-11T154512.200.json
+
+###
+
+POST http://localhost:8080/orders
+Content-Type: application/json
+Content-Length: 38
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=2F4F7CDC4FAFC2449C6A96CD661C50E3
+
+{
+  "supplement_id": 0,
+  "count": 0
+}
+
+<> 2025-02-26T021943.404.json
+
+###
+
+POST http://localhost:8080/yyGang/user/join
+Content-Type: application/json
+Content-Length: 167
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=C83AF30B7F229A6B6A819EED5C697B34
+
+{
+  "email": "test@naver.com",
+  "password": "1111",
+  "name": "testie",
+  "createdDate": "",
+  "age": 20,
+  "gender": "Male",
+  "phone": "1111",
+  "address": "2222"
+}
+
+###
+
+POST http://localhost:8080/yyGang/user/join
+Content-Type: application/json
+Content-Length: 172
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=F5F0A29F1D1C5094AF0BE61AD585054D
+
+{
+  "email": "test@naver.com",
+  "password": "1111",
+  "name": "testie",
+  "createdDate": "",
+  "age": 20,
+  "gender": "Male",
+  "phone": "1111",
+  "address": "서울시"
+}
+
+###
+
+POST http://localhost:8080/yyGang/user/join
+Content-Type: application/json
+Content-Length: 198
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=CF350A95E12E96592569F6734F17E6B4
+
+{
+  "userId": 0,
+  "email": "test@naver.com",
+  "password": "1111",
+  "name": "testie",
+  "createdDate": "",
+  "age": 30,
+  "gender": "Male",
+  "phone": "11111111",
+  "address": "서울 특별시"
+}
+
+###
+
+POST http://localhost:8080/yyGang/user/join
+Content-Type: application/json
+Content-Length: 200
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=BA2146CE00CF2C6ED5D057FD852A44FF
+
+{
+  "userId": 0,
+  "role": "CUSTOMER",
+  "email": "test@naver.com",
+  "password": "0000",
+  "name": "testie",
+  "age": 1,
+  "gender": "Male",
+  "phone": "01011112222",
+  "address": "서울특별시"
+}
+
+###
+
+POST http://localhost:8080/yyGang/user/join
+Content-Type: application/json
+Content-Length: 135
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=BA2146CE00CF2C6ED5D057FD852A44FF
+
+{
+  "userId": 1,
+  "role": {},
+  "email": "test@naver.com",
+  "password": "1234",
+  "name": "testie",
+  "age": 22,
+  "gender": "Male"
+}
+
+###
+
+POST http://localhost:8080/yyGang/user/join
+Content-Type: application/json
+Content-Length: 188
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=CD4941ABBE067A2D37ADE5C12C287C28
+
+{
+  "userId": 0,
+  "role": {},
+  "email": "test@naver.com",
+  "password": "1234",
+  "name": "testie",
+  "age": 22,
+  "gender": "Male",
+  "phone": "",
+  "createdDate": "",
+  "address": ""
+}
+
+###
+
+POST http://localhost:8080/yyGang/user/login
+Content-Type: application/json
+Content-Length: 56
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=BAEC368D46F46C38620C8442C4AF00A8
+
+{
+  "email": "dolli30@naver.com",
+  "password": "1234"
+}
+
+###
+
+POST http://localhost:8080/yyGang/user/login
+Content-Type: application/json
+Content-Length: 56
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=BAEC368D46F46C38620C8442C4AF00A8
+
+{
+  "email": "dolli30@naver.com",
+  "password": "1234"
+}
+
+###
+
+POST http://localhost:8080/yyGang/user/login
+Content-Type: application/json
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.1.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+###
+
