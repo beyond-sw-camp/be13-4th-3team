@@ -24,7 +24,7 @@ public class SwaggerConfig {
     @Bean
     public OpenAPI openAPI() {
 
-        Server server = new Server().url("https://beyond.university-api.com:31504");
+        Server server = new Server().url("https://yygang-api.com:30001");
         return new OpenAPI()
                 .components(new Components().addSecuritySchemes(
                         "bearer-auth",
