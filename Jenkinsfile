@@ -94,7 +94,7 @@ pipeline {
         //         }
         //     }
         // }
-        // manifest 실행 스테이지
+        // manifest 실행 스테이지ㅎㅎ
         stage('Trigger yygang-manifest'){
             steps{
                 script {
