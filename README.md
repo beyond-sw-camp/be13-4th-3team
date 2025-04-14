@@ -835,7 +835,14 @@ while sleep 0.1; do wget --header="Authorization: Bearer <Token> http://yygang-a
 kubectl argo rollouts undo rollout rollout-bluegreen -n bluegreen-test
 ```
 
+회고록
 
+|   조원 이름	|  회고  	|
+|---	|---	|
+|   김도윤 	|     |
+|   김민석 	|  테스트  	|
+|   이승용 	|   	|
+|   이제경 	|   	|
 
 
 
