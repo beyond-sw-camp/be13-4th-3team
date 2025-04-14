@@ -429,7 +429,10 @@ kubectl argo rollouts undo rollout rollout-bluegreen -n bluegreen-test
 ```
 
 
-## 🧭 ArgoCD 사용 이유
+
+## 🚀 ArgoCD
+
+### 🧭 ArgoCD 사용 이유
 
 > **지속적 배포(CD)**를 안정적이고 자동화된 방식으로 구현하기 위해  
 > GitOps 방식의 도구인 **ArgoCD**를 선택했습니다.
@@ -439,19 +442,7 @@ ArgoCD는 Git 저장소를 애플리케이션의 단일 진실 소스로 삼아
 
 ---
 
-
-
-## 🧭 ArgoCD 사용 이유
-
-> **지속적 배포(CD)**를 안정적이고 자동화된 방식으로 구현하기 위해  
-> GitOps 방식의 도구인 **ArgoCD**를 선택했습니다.
-
-ArgoCD는 Git 저장소를 애플리케이션의 단일 진실 소스로 삼아  
-변경 사항을 자동으로 감지하고 배포하는 **GitOps 기반 CD 도구**입니다.
-
----
-
-## ✅ ArgoCD의 주요 장점
+### ✅ ArgoCD의 주요 장점
 
 <details>
 <summary><strong>1. Git 중심의 배포 관리</strong></summary>
