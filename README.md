@@ -194,7 +194,7 @@
 > **개발부터 배포까지**, 자동화된 파이프라인을 통해  
 > **일관된 품질과 빠른 배포**를 실현했습니다.
 
-<details><summary>backend pipeline
+<details><summary>Backend pipeline
 
 </summary>
 
@@ -338,7 +338,60 @@ pipeline {
 ```
 </details>
 
-<details><summary>frtontend pipeline
+<details><summary>Backend manifest pipeline
+
+</summary>
+
+```yaml
+
+pipeline {
+    agent any
+    parameters {
+        string(name: 'DOCKER_IMAGE_VERSION', defaultValue: '', description: 'parameter')
+    }
+    stages {
+        stage('Update deploy.yaml') {
+            steps {
+                // Jenkins 파이프라인에서 작업 디렉토리를 변경하는 과정
+                script{
+                    def imageTag = "${params.DOCKER_IMAGE_VERSION}"
+                    echo "${params.DOCKER_IMAGE_VERSION}"
+                    sh 'pwd'
+                    sh 'ls -al'
+                    sh 'git checkout main'
+                    sh "sed -i 's|namoo36/yygang-api:.*|namoo36/yygang-api:${params.DOCKER_IMAGE_VERSION}|g' yygang-be/deploy.yaml"
+                    sh 'cat yygang-be/deploy.yaml'
+                }
+            }
+        }
+        // stage('Echo Param Value') {
+        //     steps {
+        //         echo "DOCKER_IMAGE_VERSION param received: '${params.DOCKER_IMAGE_VERSION}'"
+        //     }
+        // }
+        stage('Commit & Push'){
+            steps {
+                sh 'git config --list'
+                sh 'git config user.name "namoo36"'
+                sh 'git config user.email "wldnrkwhr36@naver.com"'
+                sh 'git config --list'
+                sh 'git add .'
+                sh "git commit -m 'Update Image Version ${params.DOCKER_IMAGE_VERSION}'"
+                // sh 'git diff --cached --quiet || git commit -m "Update Image Version ${params.DOCKER_IMAGE_VERSION}"'
+                sh 'git status'
+                // 활성화 -> 젠킨스에 등록한 키 이름 주기
+                sshagent(['yyGang-manifest-key']){
+                    sh 'git push'
+                }
+            }
+        }
+    }
+ }
+```
+</details>
+
+
+<details><summary>Frontend pipeline
 
 </summary>
 
@@ -462,6 +515,60 @@ pipeline {
 ```
 </details>
 
+
+<details><summary>Backend manifest pipeline
+
+</summary>
+
+```yaml
+
+pipeline {
+    agent any
+    parameters {
+        string(name: 'DOCKER_IMAGE_VERSION', defaultValue: '', description: 'parameter')
+    }
+    stages {
+        stage('Update deploy.yaml') {
+            steps {
+                // Jenkins 파이프라인에서 작업 디렉토리를 변경하는 과정
+                script{
+                    def imageTag = "${params.DOCKER_IMAGE_VERSION}"
+                    echo "${params.DOCKER_IMAGE_VERSION}"
+                    sh 'pwd'
+                    sh 'ls -al'
+                    sh 'git checkout main'
+                    sh "sed -i 's|namoo36/yygang-app:.*|namoo36/yygang-app:${params.DOCKER_IMAGE_VERSION}|g' yygang-fe/deploy.yaml"
+                    sh 'cat yygang-fe/deploy.yaml'
+                }
+            }
+        }
+        // stage('Echo Param Value') {
+        //     steps {
+        //         echo "DOCKER_IMAGE_VERSION param received: '${params.DOCKER_IMAGE_VERSION}'"
+        //     }
+        // }
+        stage('Commit & Push'){
+            steps {
+                sh 'git config --list'
+                sh 'git config user.name "namoo36"'
+                sh 'git config user.email "wldnrkwhr36@naver.com"'
+                sh 'git config --list'
+                sh 'git add .'
+                sh "git commit -m 'Update Image Version ${params.DOCKER_IMAGE_VERSION}'"
+                // sh 'git diff --cached --quiet || git commit -m "Update Image Version ${params.DOCKER_IMAGE_VERSION}"'
+                sh 'git status'
+                // 활성화 -> 젠킨스에 등록한 키 이름 주기
+                sshagent(['yyGang-manifest-key']){
+                    sh 'git push'
+                }
+            }
+        }
+    }
+ }
+
+```
+</details>
+<br>
 
 ### ✔️ 도구 구성 
 
