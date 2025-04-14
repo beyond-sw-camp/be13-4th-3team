@@ -273,8 +273,7 @@ frontend jenkins파일
 - 에러 발생 시 자동 알림 및 **롤백 시스템 도입**
 
 
-
-
+<br><br>
 
 ## 📈오토스케일링
 
@@ -429,7 +428,7 @@ kubectl argo rollouts undo rollout rollout-bluegreen -n bluegreen-test
 ```
 
 
-
+<br><br>
 ## 🚀 ArgoCD
 
 ### 🧭 ArgoCD 사용 이유
