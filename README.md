@@ -306,9 +306,9 @@ frontend jenkins파일
   
 
 ## 무중단 배포  
-> 블루/그린 배포 (Blue-Green Deployment)
+### 블루/그린 배포 (Blue-Green Deployment)
 
-두 개의 동일한 환경(**블루**, **그린**)을 준비하여  
+> 두 개의 동일한 환경(**블루**, **그린**)을 준비하여  
 한쪽 환경에서 서비스를 운영하는 동안 다른 환경에 새 버전을 배포합니다.  
 보통 **blue가 현재 운영 중**, **green이 새 버전**을 의미합니다.<br>
 ![65c3a844357606c1b08a21f0_Screen-Shot-2021-03-19-at-2 34 46-PM](https://github.com/user-attachments/assets/0ef46c75-a9de-418a-abdf-770a1e03285b)
