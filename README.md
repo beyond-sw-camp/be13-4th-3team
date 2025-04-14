@@ -469,6 +469,81 @@ pipeline {
 - **Docker** 기반 컨테이너 이미지 빌드
 - **Nginx + Spring Boot**를 통한 웹 서버 구성
 
+<br><br>
+## 🚀 Jenkins
+
+### 🧭 Jenkins 사용 이유
+- CI Tool로 코드 변경 시 **빌드 → 테스트 → 이미지 생성 및 푸시**까지 담당함
+- 온프레미스 환경 및 클라우드 환경에서 독립 운영이 가능하기 때문에 보안 확보가 좋음
+    - Travis CI/CircleCI는 온프레미스 지원이 약함
+- 호환성이 좋음 → **Docker**, **Kubernetes**, **Ansible과 연동 원활**
+- 다양한 플러그인 및 스크립트를 통한 유연한 배포 가능
+- 복잡한 파이프라인의 세밀한 제어에 좋음
+
+<strong>**yyGang**</strong>
+- 영양제 커스터마이징에 중점을 둔 yyGang 의 특성상 게시판, 약사 질문 등의 기능 업데이트 및 다양한 건강 기능 태그 업데이트 등이 빈번함에 따라 빠른 배포가 중요.
+- 개인 건강 관련 데이터를 다루는 만큼 다른 도구에 비해 보안 측면에서 유리함
+
+<br><br>
+## 🚀 ArgoCD
+
+### 🧭 ArgoCD 사용 이유
+
+> **지속적 배포(CD)**를 안정적이고 자동화된 방식으로 구현하기 위해  
+> GitOps 방식의 도구인 **ArgoCD**를 선택했습니다.
+
+ArgoCD는 Git 저장소를 애플리케이션의 단일 진실 소스로 삼아  
+변경 사항을 자동으로 감지하고 배포하는 **GitOps 기반 CD 도구**입니다.
+
+---
+
+### ✅ ArgoCD의 주요 장점
+
+<details>
+<summary><strong>1. Git 중심의 배포 관리</strong></summary>
+
+Argo CD는 Git에 기록된 설정을 기준으로 애플리케이션을 배포합니다.  
+모든 변경 내용은 Git에 남기 때문에 **버전 관리가 쉽고**, 문제가 생기면 이전 상태로 **쉽게 되돌릴 수 있습니다.**
+
+</details>
+
+<details>
+<summary><strong>2. 자동화된 동기화</strong></summary>
+
+Argo CD는 GitOps 원칙에 따라 **자동으로 클러스터와 동기화**합니다.  
+Git에 변경 사항이 생기면 이를 감지해 Kubernetes를 자동으로 업데이트합니다.  
+덕분에 배포를 수동으로 할 필요가 없고, **안정적인 운영이 가능합니다.**
+
+</details>
+
+<details>
+<summary><strong>3. Blue-Green 배포 전략 지원</strong></summary>
+
+Argo CD는 **Blue-Green 배포 전략**을 지원합니다.  
+운영 중인 환경(Blue)과 새 버전 환경(Green)을 동시에 유지하고, 문제 없는 것을 확인한 후 트래픽을 Green으로 전환합니다.  
+**무중단 배포와 빠른 롤백**이 가능합니다.
+
+</details>
+
+<details>
+<summary><strong>4. 확장성과 유연성</strong></summary>
+
+Argo CD는 대규모 Kubernetes 클러스터에서도 **유연하게 확장**할 수 있습니다.  
+여러 클러스터를 동시에 관리할 수 있으며, 클러스터마다 **다른 설정을 적용**할 수 있습니다.  
+덕분에 다양한 환경에서도 **일관된 배포가 가능합니다.**
+
+</details>
+
+<details>
+<summary><strong>5. 강력한 보안성</strong></summary>
+
+Argo CD는 Git을 기준으로 애플리케이션 상태를 관리하므로, **누가 언제 무엇을 배포했는지 추적**할 수 있습니다.  
+배포 실수나 보안 사고를 사전에 방지할 수 있고, **인증과 권한 관리**도 지원하여 팀 단위 보안 운영이 가능합니다.
+
+</details>
+<br>
+
+
 
 ### ✔️ 흐름 설명
 
@@ -500,32 +575,6 @@ pipeline {
     - ArgoCD는 최신 이미지를 사용하여 새로운 Pod를 생성하고, 이전 Pod를 점진적으로 종료하는 롤링 업데이트 방식으로 무중단 배포를 수행
 
 </details>
-<br><br>
-
-## 🧪 CI/CD 테스트 결과
-
-> 지속적인 통합과 배포 테스트를 통해  
-> **신뢰성 있는 서비스 운영**을 실현했습니다.
-
-> > 아래는 **CI/CD 테스트 예시 결과**입니다.  
-
-
-### ✔️ 테스트 항목 *(예시)*
-
-- 코드 빌드 성공 여부  
-- 유닛 테스트 통과 여부  
-- 통합 테스트 (API 기능 검증)  
-- Docker 이미지 정상 작동 확인  
-- 실제 배포 환경에서의 **헬스 체크 통과 여부**
-
-### ✔️ 주요 성과 *(예시)*
-
-- **빌드 실패율 0%** 유지  
-- 주요 기능 배포 시, 평균 **2분 이내 배포 완료**  
-- 에러 발생 시 자동 알림 및 **롤백 시스템 도입**
-
-
-<br><br>
 
 ## 📈오토스케일링
 
@@ -678,65 +727,6 @@ while sleep 0.1; do wget --header="Authorization: Bearer <Token> http://yygang-a
 ```bash
 kubectl argo rollouts undo rollout rollout-bluegreen -n bluegreen-test
 ```
-
-
-<br><br>
-## 🚀 ArgoCD
-
-### 🧭 ArgoCD 사용 이유
-
-> **지속적 배포(CD)**를 안정적이고 자동화된 방식으로 구현하기 위해  
-> GitOps 방식의 도구인 **ArgoCD**를 선택했습니다.
-
-ArgoCD는 Git 저장소를 애플리케이션의 단일 진실 소스로 삼아  
-변경 사항을 자동으로 감지하고 배포하는 **GitOps 기반 CD 도구**입니다.
-
----
-
-### ✅ ArgoCD의 주요 장점
-
-<details>
-<summary><strong>1. Git 중심의 배포 관리</strong></summary>
-
-Argo CD는 Git에 기록된 설정을 기준으로 애플리케이션을 배포합니다.  
-모든 변경 내용은 Git에 남기 때문에 **버전 관리가 쉽고**, 문제가 생기면 이전 상태로 **쉽게 되돌릴 수 있습니다.**
-
-</details>
-
-<details>
-<summary><strong>2. 자동화된 동기화</strong></summary>
-
-Argo CD는 GitOps 원칙에 따라 **자동으로 클러스터와 동기화**합니다.  
-Git에 변경 사항이 생기면 이를 감지해 Kubernetes를 자동으로 업데이트합니다.  
-덕분에 배포를 수동으로 할 필요가 없고, **안정적인 운영이 가능합니다.**
-
-</details>
-
-<details>
-<summary><strong>3. Blue-Green 배포 전략 지원</strong></summary>
-
-Argo CD는 **Blue-Green 배포 전략**을 지원합니다.  
-운영 중인 환경(Blue)과 새 버전 환경(Green)을 동시에 유지하고, 문제 없는 것을 확인한 후 트래픽을 Green으로 전환합니다.  
-**무중단 배포와 빠른 롤백**이 가능합니다.
-
-</details>
-
-<details>
-<summary><strong>4. 확장성과 유연성</strong></summary>
-
-Argo CD는 대규모 Kubernetes 클러스터에서도 **유연하게 확장**할 수 있습니다.  
-여러 클러스터를 동시에 관리할 수 있으며, 클러스터마다 **다른 설정을 적용**할 수 있습니다.  
-덕분에 다양한 환경에서도 **일관된 배포가 가능합니다.**
-
-</details>
-
-<details>
-<summary><strong>5. 강력한 보안성</strong></summary>
-
-Argo CD는 Git을 기준으로 애플리케이션 상태를 관리하므로, **누가 언제 무엇을 배포했는지 추적**할 수 있습니다.  
-배포 실수나 보안 사고를 사전에 방지할 수 있고, **인증과 권한 관리**도 지원하여 팀 단위 보안 운영이 가능합니다.
-
-</details>
 
 
 
