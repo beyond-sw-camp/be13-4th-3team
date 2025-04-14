@@ -68,7 +68,7 @@ pipeline {
                             credentialsId: DOCKER_CREDENTIALS_ID, 
                             passwordVariable: 'DOCKER_PASSWORD', 
                             usernameVariable: 'DOCKER_USERNAME')]){
-                            // 자격 증명은 이 블럭 안에서만 유효함
+                            // 자격 증명은 이 블럭 안에서만 유효함ㅇㅇ
                             sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
                         }
 
