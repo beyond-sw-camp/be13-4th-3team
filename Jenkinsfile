@@ -72,7 +72,7 @@ pipeline {
                             sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
                         }
 
-                        // 파이프라인 단계에서 환경 변수를 설정하는 역할을 한다.
+                        // 파이프라인 단계에서 환경 변수를 설정하는 역할을 한다.ㅇㅇ
                         withEnv(["DOCKER_IMAGE_VERSION=${dockerImageVersion}"]){
                             sh 'docker -v'
                             sh 'echo $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_VERSION'
