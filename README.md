@@ -282,9 +282,86 @@ frontend jenkins파일
 
 ### ✅ 주요 오토스케일링 구성 요소
 
-#### 🔹 HPA (Horizontal Pod Autoscaler)  
 
-#### 🔹 Karpenter  
+<details><summary>🔹 HPA (Horizontal Pod Autoscaler) 
+</summary>
+
+
+### HPA(HorizontalPodAutoscaler)
+
+- CPU, 메모리 등의 사용률을 체크해서 Pod의 개수를 Scaling 하는 오브젝트이다.
+
+- 서비스에 사용자가 늘어나 경우 원활한 서비스를 위해 서버를 늘리고, 다시 여유로운 상황이 되면 불필요한 서버를 자동으로 줄여 발생하는 요금을 낮출 수 있다.
+
+```
+hpa.yaml 파일
+```
+
+<br>
+
+<details><summary> 부하 증가 테스트
+</summary>
+
+<br>
+
+- 임시 pod 생성 후 내부 컨테이너 접속
+```
+kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- /bin/sh
+```
+<br>
+
+- 무한루프 쿼리 전송
+```
+while sleep 0.1; do wget --header="Authorization: Bearer <Token> http://yygang-api:8000/; done
+```
+
+<br>
+
+- 부하 증가 확인
+
+![Image](https://github.com/user-attachments/assets/33f79cbf-65df-4aec-a261-6f09a0dd5040)
+
+</details>
+
+
+<details><summary>  pod 오토 스케일링
+</summary>
+
+<br>
+
+- 사용량이 증가함에 따라 pod를 늘린 후 cpu 안정화
+ 
+![Image](https://github.com/user-attachments/assets/b2b8c83b-b328-4057-bd5d-fcefd340dace)
+
+</details>
+
+
+<details><summary> 포드 증가 확인(ArgoCD)
+</summary>
+
+<br>
+
+- CPU 부하 전
+
+![Image](https://github.com/user-attachments/assets/f86de065-293e-4006-be0f-21871f21ee51)
+
+- CPU 부하 후(pod 증가)
+
+![Image](https://github.com/user-attachments/assets/411dc654-99db-4016-8200-7e51181ae92c)
+
+
+</details>
+
+
+
+</details> 
+
+
+<details><summary>🔹 Karpenter
+</summary>
+
+###  Karpenter
+
 노드 수준의 오토스케일링을 담당하며, Pod가 스케줄되지 못하고 Pending 상태일 때 **자동으로 새로운 Worker Node를 생성**합니다.
 
 ![karpenter](https://github.com/user-attachments/assets/ef9bb4fd-2d13-46c3-b0bf-198991b001bd)
@@ -349,3 +426,8 @@ frontend jenkins파일
 kubectl argo rollouts undo rollout rollout-bluegreen -n bluegreen-test
 ```
 
+</details>
+
+
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
