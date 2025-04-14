@@ -840,7 +840,8 @@ kubectl argo rollouts undo rollout rollout-bluegreen -n bluegreen-test
 |   조원 이름	|  회고  	|
 |---	|---	|
 |   김도윤 	|     |
-|   김민석 	|  테스트  	|
+|   김민석 	|  처음엔 쉽게 배포될 거라 생각했습니다. 그런데 직접 Jenkins나 ArgoCD 같은 툴을 설치하고 설정해보니까, 생각보다 복잡하고 알아야 할 것도 많았습니다. 배포가 어떻게 이뤄지는지 전체 흐름을 조금씩 이해하게 됐습니다.
+  	|
 |   이승용 	|   	|
 |   이제경 	|   	|
 
