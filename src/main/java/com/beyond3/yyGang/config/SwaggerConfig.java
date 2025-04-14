@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
         info = @Info(
                 title = "yyGang Project",
                 description = "yyGang Project Service API",
-                version = "v1.0.0"
+                version = "v1.0.2"
         )
 )
 public class SwaggerConfig {
