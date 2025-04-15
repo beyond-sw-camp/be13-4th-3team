@@ -516,7 +516,7 @@ pipeline {
 </details>
 
 
-<details><summary>Backend manifest pipeline
+<details><summary>frontend manifest pipeline
 
 </summary>
 
