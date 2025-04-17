@@ -684,7 +684,7 @@ Argo CD는 Git을 기준으로 애플리케이션 상태를 관리하므로, **�
 </details>
 <br> 
 
-## 📄실행 결과
+## 📄 실행 결과
 
 <details><summary> 1. GitHub에 Application 변경 사항을 Push ➡️ Webhook 트리거를 통해 변경을 감지, 파이프라인 실행
 </summary>
