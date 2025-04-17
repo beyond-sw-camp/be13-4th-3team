@@ -689,6 +689,7 @@ Argo CD는 Git을 기준으로 애플리케이션 상태를 관리하므로, **�
 <details><summary> 1. GitHub에 Application 변경 사항을 Push ➡️ Webhook 트리거를 통해 변경을 감지, 파이프라인 실행
 </summary>
   
+  https://github.com/user-attachments/assets/fa47d3f5-a5f2-4052-a1e7-4b4436551a7c
 <img src="https://github.com/user-attachments/assets/3ff9bc56-5c17-4f20-949f-80f205fcf41d" width="600"/> 
 
 <img src="https://github.com/user-attachments/assets/6e63c5c2-c999-418b-bc46-4cff106ca798" alt="Push 후 젠킨스 파이프라인 실행" width="600"/>
@@ -699,6 +700,7 @@ Argo CD는 Git을 기준으로 애플리케이션 상태를 관리하므로, **�
 <details><summary> 2. 빌드, 이미지 생성, DockerHub에 이미지 Push 완료
 </summary>
   
+  https://github.com/user-attachments/assets/e54c88e5-b586-404c-a54e-8b9164a283b0
 <img src="https://github.com/user-attachments/assets/75544d4a-a475-4967-810e-d4a994308acb" alt="빌드, 이미지 생성, 이미지 푸시" width="600"/>
 
 </details>
@@ -707,13 +709,15 @@ Argo CD는 Git을 기준으로 애플리케이션 상태를 관리하므로, **�
 <details><summary> 3. ArgoCD에서 Manifest 레포 파일 변경, 자동 배포 실행
 </summary>
   
+  https://github.com/user-attachments/assets/eb4c6742-3e0d-487a-ab09-5a47a0d95a31
 <img src="https://github.com/user-attachments/assets/3d444be8-b53b-42d0-a40f-39714762755b" alt="자동 배포 실행" width="600"/>
 
 </details>
 
 <details><summary> 4. 배포 후 변경사항 반영 확인
 </summary>
-  
+
+  https://github.com/user-attachments/assets/acddc2f1-9796-4033-b331-80351dbfb3fd
 <img src="https://github.com/user-attachments/assets/97e1c938-1e86-4934-aaed-9547534cdf91" width="600"/> 
 
 <img src="https://github.com/user-attachments/assets/281849c0-c5d5-4990-8653-54c214738c68" width="600"/>
